@@ -40,6 +40,18 @@ function fillWorkerPool() {
   }
 }
 
+function getConfig(base, cfg) {
+  const config = { ...base, ...cfg };
+  for (const key in cfg) {
+    if (!(key in baseConfig)) {
+      console.warn(
+        `Ignoring unknown key ${key}. Did you mean to put this in the 'options' field?`
+      );
+    }
+  }
+  return config;
+}
+
 export async function init(cfg) {
   if (cfg) {
     settings = { ...settings, ...cfg };
@@ -162,7 +174,7 @@ export class Model {
   }
   check(cfg) {
     return new Promise((resolve, _reject) => {
-      const config = { ...cfg };
+      const config = getConfig({ options: undefined }, cfg);
       const { worker, runCount } = this._run(
         ["--model-check-only"],
         config.options
@@ -191,7 +203,7 @@ export class Model {
   }
   interface(cfg) {
     return new Promise((resolve, reject) => {
-      const config = { ...cfg };
+      const config = getConfig({ options: undefined }, cfg);
       const { worker, runCount } = this._run(
         ["-c", "--model-interface-only"],
         config.options
@@ -227,7 +239,7 @@ export class Model {
     });
   }
   compile(cfg) {
-    const config = { ...cfg };
+    const config = getConfig({ options: undefined }, cfg);
     let i = 0;
     let out = `_fzn_${i++}.fzn`;
     while (out in this.vfs) {
@@ -307,7 +319,7 @@ export class Model {
     };
   }
   solve(cfg) {
-    const config = { jsonOutput: true, ...cfg };
+    const config = getConfig({ jsonOutput: true, options: undefined }, cfg);
     const args = ["-i"]; // Always use intermediate solutions
     if (config.jsonOutput) {
       args.push("--output-mode");
