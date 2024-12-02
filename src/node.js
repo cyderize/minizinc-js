@@ -221,7 +221,7 @@ export class Model {
   }
   interface(cfg) {
     const config = { ...cfg };
-    const proc = this._run(["-c", "--model-interface-only"], config.options);
+    const proc = this._run(["--model-interface-only"], config.options);
     const errors = [];
     let iface = null;
     proc.on("error", (e) => errors.push(e));
