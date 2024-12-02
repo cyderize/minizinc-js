@@ -657,7 +657,9 @@ export interface CompilationProgress extends PromiseLike<string> {
    * @example
    * ```js
    * const compile = model.compile({
-   *   solver: 'gecode'
+   *   options: {
+   *     solver: 'gecode'
+   *   }
    * });
    * setInterval(() => {
    *   if (compile.isRunning()) {
@@ -673,7 +675,9 @@ export interface CompilationProgress extends PromiseLike<string> {
    * @example
    * ```js
    * const compile = model.compile({
-   *   solver: 'gecode'
+   *   options: {
+   *     solver: 'gecode'
+   *   }
    * });
    * setTimeout(() => {
    *   if (compile.isRunning()) {
