@@ -193,7 +193,7 @@ export class Model {
     return new Promise((resolve, reject) => {
       const config = { ...cfg };
       const { worker, runCount } = this._run(
-        ["-c", "--model-interface-only"],
+        ["--model-interface-only"],
         config.options
       );
       const errors = [];

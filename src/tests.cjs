@@ -102,7 +102,7 @@ module.exports.commonTests = (MiniZinc) => {
   test("Basic compile", async () => {
     const model = new MiniZinc.Model();
     model.addString("var 1..3: x;");
-    const fzn = await model.compile();
+    const fzn = await model.compile({ options: { solver: "gecode" } });
     expect(fzn).toMatch(
       /var\s+1\s*\.\.\s*3\s*:\s*x\s*::\s*output_var\s*;\s*solve\s*satisfy;\s*/
     );
