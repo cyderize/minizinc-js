@@ -51,7 +51,11 @@ addEventListener("message", async (e) => {
             throw new Error(`Unsupported file path ${key}`);
           }
           const dest = "/minizinc/" + resolved.substring(prefix.length);
-          for (let i = 0; i != -1; i = dest.indexOf("/", i + 1)) {
+          for (
+            let i = dest.indexOf("/", 10);
+            i !== -1;
+            i = dest.indexOf("/", i + 1)
+          ) {
             // Create parent paths
             const path = dest.substring(0, i);
             if (!Module.FS.analyzePath(path).exists) {
