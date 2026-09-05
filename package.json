@@ -2,7 +2,7 @@
   "name": "minizinc",
   "version": "4.5.2",
   "description": "JavaScript API for MiniZinc",
-  "homepage": "https://js.minizinc.dev",
+  "homepage": "https://js.minizinc.org",
   "types": "types/index.d.ts",
   "main": "dist/minizinc.mjs",
   "type": "module",

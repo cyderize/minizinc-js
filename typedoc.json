@@ -7,7 +7,7 @@
   "excludeProtected": true,
   "excludeExternals": true,
   "navigationLinks": {
-    "MiniZinc": "https://minizinc.dev",
+    "MiniZinc": "https://minizinc.org",
     "GitHub": "https://github.com/minizinc/minizinc-js"
   }
 }

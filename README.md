@@ -1,15 +1,15 @@
 # JavaScript interface for MiniZinc
 
-[![Latest documentation](https://img.shields.io/badge/docs-latest-blue)](https://js.minizinc.dev/docs/stable)
+[![Latest documentation](https://img.shields.io/badge/docs-latest-blue)](https://js.minizinc.org/docs/stable)
 [![Latest package](https://img.shields.io/npm/v/minizinc/latest?color=blue)](https://www.npmjs.com/package/minizinc)
-[![Edge documentation](https://img.shields.io/badge/docs-edge-orange)](https://js.minizinc.dev/docs/develop)
+[![Edge documentation](https://img.shields.io/badge/docs-edge-orange)](https://js.minizinc.org/docs/develop)
 [![Edge package](https://img.shields.io/npm/v/minizinc/edge?color=orange)](https://www.npmjs.com/package/minizinc)
 
-This package provides a JavaScript API for [MiniZinc](https://minizinc.dev)
+This package provides a JavaScript API for [MiniZinc](https://minizinc.org)
 for use in web browsers using WebAssembly, or in NodeJS using a native
 installation of MiniZinc.
 
-This library powers the [MiniZinc Playground](https://minizinc.dev/solve).
+This library powers the [MiniZinc Playground](https://play.minizinc.org).
 
 ## Getting started
 
@@ -109,7 +109,7 @@ Otherwise, you can specify the executable path during [initialisation](#initiali
 ### Initialisation
 
 Initialisation happens automatically when the library is used, or by calling
-[`init(...)`](https://js.minizinc.dev/docs/stable/functions/init.html). This can be used to ensure
+[`init(...)`](https://js.minizinc.org/docs/stable/functions/init.html). This can be used to ensure
 that the WebAssembly files start loading immediately, or to specify a different URL for the worker
 (or path to the MiniZinc executable if using NodeJS).
 
@@ -143,7 +143,7 @@ By default, the NodeJS version tries to find MiniZinc on your `PATH`.
 ### Creating Models
 
 The main entrypoint for using the library is through the
-[`Model`](https://js.minizinc.dev/docs/stable/classes/Model.html) class:
+[`Model`](https://js.minizinc.org/docs/stable/classes/Model.html) class:
 
 ```js
 const model = new MiniZinc.Model();
@@ -161,8 +161,8 @@ model.addJson({ z: 2 });
 
 ### Solving
 
-Solving is done using the [`Model.solve(...)`](https://js.minizinc.dev/docs/stable/classes/Model.html#solve) method,
-which takes an object with `options` in [`.mpc`](https://minizinc.dev/doc-latest/en/command_line.html#ch-param-files)
+Solving is done using the [`Model.solve(...)`](https://js.minizinc.org/docs/stable/classes/Model.html#solve) method,
+which takes an object with `options` in [`.mpc`](https://docs.minizinc.org/en/stable/command_line.html#ch-param-files)
 format.
 
 ```js
@@ -184,23 +184,23 @@ solve.then(result => {
 ```
 
 During solving, MiniZinc emits events which can be subscribed to/unsubscribed from using the
-[`SolveProgress.on`](https://js.minizinc.dev/docs/stable/interfaces/SolveProgress.html#on) /
-[`SolveProgress.off`](https://js.minizinc.dev/docs/stable/interfaces/SolveProgress.html#off)
+[`SolveProgress.on`](https://js.minizinc.org/docs/stable/interfaces/SolveProgress.html#on) /
+[`SolveProgress.off`](https://js.minizinc.org/docs/stable/interfaces/SolveProgress.html#off)
 methods. The events are those which appear in
-[Machine-readable JSON output format](https://minizinc.dev/doc-latest/en/json-stream.html),
-with the addition of the [`exit`](https://js.minizinc.dev/docs/stable/interfaces/ExitMessage.html)
+[Machine-readable JSON output format](https://minizinc.org/doc-latest/en/json-stream.html),
+with the addition of the [`exit`](https://js.minizinc.org/docs/stable/interfaces/ExitMessage.html)
 event, which can be used to detect when solving finishes (if you do not wish to await the
-[`SolveProgress`](https://js.minizinc.dev/docs/stable/interfaces/SolveProgress.html) object).
+[`SolveProgress`](https://js.minizinc.org/docs/stable/interfaces/SolveProgress.html) object).
 
 By default, `--output-mode json` is used, allowing you to retrieve the model variable values
 directly from the solution objects. Use
-[`Model.solve({ jsonOutput: false, ...})`](https://js.minizinc.dev/docs/stable/classes/Model.html#solve)
+[`Model.solve({ jsonOutput: false, ...})`](https://js.minizinc.org/docs/stable/classes/Model.html#solve)
 (and optionally specify a different `output-mode` in the `options`) to disable this behaviour.
 
 ## Documentation
 
 For more detailed documentation of all available options and functionality, visit the
-[API documentation](https://js.minizinc.dev/docs/stable/).
+[API documentation](https://js.minizinc.org/docs/stable/).
 
 ## Building
 

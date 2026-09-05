@@ -348,7 +348,7 @@ export function readStdlibFileContents(
 export function shutdown(): void;
 
 /**
- * Options configuration in parameter configuration file ([`.mpc`](https://minizinc.dev/doc-latest/en/command_line.html#ch-param-files))
+ * Options configuration in parameter configuration file ([`.mpc`](https://docs.minizinc.org/en/stable/command_line.html#ch-param-files))
  * format.
  *
  * @example
@@ -479,7 +479,7 @@ export interface VarType {
  * Model output mapping section names to their contents.
  *
  * The default mode will populate the `json` key with an object mapping
- * variable names to their values (see the [MiniZinc documentation](https://minizinc.dev/doc-latest/en/spec.html#json-support)
+ * variable names to their values (see the [MiniZinc documentation](https://docs.minizinc.org/en/stable/spec.html#json-support)
  * for details on the format).
  *
  * Note that sections ending with `_json` will be arrays.
